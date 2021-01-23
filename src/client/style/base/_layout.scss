@@ -65,3 +65,19 @@
     text-align: center;
   }
 }
+
+.leftSmallImg {
+  max-width: 200px !important;
+  float: left !important;
+  clear: left;
+}
+
+footer {
+  font-size: $s-size;
+  font-style: italic;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
