@@ -1,6 +1,6 @@
 // Learn more about this file at:
 // https://victorzhou.com/blog/build-an-io-game-part-1/#3-client-entrypoints
-import { connect, play, roll } from './networking';
+import { connect, play, roll, randBackground } from './networking';
 import { startRendering, stopRendering } from './render';
 import { startCapturingInput, stopCapturingInput } from './input';
 import { downloadAssets } from './assets';
@@ -12,7 +12,8 @@ import { setPlayerlistHidden } from './playerlist';
 // but not much. In general, you should be careful using Bootstrap because it makes it
 // easy to unnecessarily bloat your site.
 import './css/bootstrap-reboot.css';
-import './css/main.css';
+import 'normalize.css/normalize.css';
+import './style/style.scss';
 
 const playMenu = document.getElementById('play-menu');
 const playButton = document.getElementById('play-button');
@@ -23,6 +24,7 @@ const diceNumberField = document.getElementById('dice_number');
 const diceModField = document.getElementById('dice_mod');
 
 const rollButton = document.getElementById('button-roll');
+const randBackgroundButton = document.getElementById('button-random-background');
 
 Promise.all([
   connect(onGameOver),
@@ -50,6 +52,9 @@ Promise.all([
 
     roll(dummyDie);
     console.log(dummyDie.qty)
+  }
+  randBackgroundButton.onclick = () => {
+    randBackground(usernameInput.value);
   }
 }).catch(console.error);
 

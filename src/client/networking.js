@@ -32,11 +32,16 @@ export const connect = onGameOver => (
 
 export const play = username => {
   socket.emit(Constants.MSG_TYPES.JOIN_GAME, username);
+  socket.emit(Constants.MSG_TYPES.ASSIGN_BACKGROUND, username);
 };
 
 export const roll = dice => {
   socket.emit(Constants.MSG_TYPES.ROLL_DICE, dice);
 };
+
+export const randBackground = username => {
+  socket.emit(Constants.MSG_TYPES.ASSIGN_BACKGROUND, username);
+}
 
 export const updateDirection = throttle(20, dir => {
   socket.emit(Constants.MSG_TYPES.INPUT, dir);

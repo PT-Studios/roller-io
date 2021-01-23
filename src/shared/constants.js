@@ -18,5 +18,6 @@ module.exports = Object.freeze({
     INPUT: 'input',
     GAME_OVER: 'dead',
     ROLL_DICE: 'roll',
+    ASSIGN_BACKGROUND: 'assign_background',
   },
 });

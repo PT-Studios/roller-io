@@ -1,4 +1,5 @@
 const Constants = require('../shared/constants');
+const Background = require('./background');
 const Dice = require('./dice');
 const Player = require('./player');
 const applyCollisions = require('./collisions');
@@ -22,10 +23,11 @@ class Game {
     this.players[socket.id] = new Player(socket.id, username, x, y);
   }
 
-  rollDice(socket, sides, qty, mod) {
+  assignBackground(socket, username) {
     if (this.players[socket.id]) {
-      const die = new Dice(this.players[socket.id].username, sides, qty, mod);
-      this.players[socket.id].setRoll(die);
+      this.sockets[socket.id] = socket;
+      let bg = new Background();
+      this.players[socket.id].setBackground(bg);
       this.update();
     }
   }
@@ -33,6 +35,14 @@ class Game {
   removePlayer(socket) {
     delete this.sockets[socket.id];
     delete this.players[socket.id];
+  }
+
+  rollDice(socket, sides, qty, mod) {
+    if (this.players[socket.id]) {
+      const die = new Dice(this.players[socket.id].username, sides, qty, mod);
+      this.players[socket.id].setRoll(die);
+      this.update();
+    }
   }
 
   handleInput(socket, dir) {
@@ -114,7 +124,8 @@ class Game {
       .slice(0, 5)
       .map(p => ({ 
         username: p.username, 
-        score: Math.round(p.score)
+        score: Math.round(p.score),
+        bg: p.bg
     }));
   }
 

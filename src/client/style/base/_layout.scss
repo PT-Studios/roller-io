@@ -1,0 +1,67 @@
+#disconnect-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#disconnect-modal > div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  padding: 15px 20px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#game-board {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+#play-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  padding: $r-size $l-size;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  input {
+    font-size: $m-size;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: $s-size;
+    padding: $xs-size;
+    text-align: center;
+    &:hover {
+      outline: none;
+    }
+  }
+}
+
+#rolling-mat {
+  background-color: darken($offwhite, 10%);
+  padding: $m-size;
+  min-width: 33%;
+
+  #roll-results {
+    font-size: $l-size;
+    text-align: center;
+  }
+}

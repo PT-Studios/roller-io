@@ -35,11 +35,16 @@ io.on('connection', socket => {
   socket.on(Constants.MSG_TYPES.JOIN_GAME, joinGame);
   socket.on(Constants.MSG_TYPES.INPUT, handleInput);
   socket.on(Constants.MSG_TYPES.ROLL_DICE, rollDice);
+  socket.on(Constants.MSG_TYPES.ASSIGN_BACKGROUND, assignBackground);
   socket.on('disconnect', onDisconnect);
 });
 
 // Setup the Game
 const game = new Game();
+
+function assignBackground(username) {
+  game.assignBackground(this, username);
+}
 
 function joinGame(username) {
   game.addPlayer(this, username);

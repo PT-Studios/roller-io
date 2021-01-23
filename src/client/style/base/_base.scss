@@ -1,0 +1,98 @@
+.is-active { font-weight: bold; }
+.hidden { display: none !important; }
+.title { 
+  color: $blue;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: rgba(0, 0, 0, 0.498039) -1px -1px 0px, rgba(0, 0, 0, 0.498039) -1px 1px 0px, rgba(0, 0, 0, 0.498039) 1px 1px 0px, rgba(0, 0, 0, 0.498039) 1px -1px 0px;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+a {
+  color: $pink !important;
+}
+
+body {
+  font-family: 'Averia Libre', cursive;
+  font-size: $r-size;
+  background-color: $offwhite;
+  height: 100%;
+}
+
+button {
+  background-color: $blue;
+  border: none;
+  border-radius: 3px;
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-size: $r-size;
+  outline: none;
+  padding: $xs-size $r-size;
+  margin: 0 auto;
+  margin-bottom: $xs-size;
+  transition: background-color 0.2s ease;
+  width: 90%;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:hover {
+    background-color: lighten($blue, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: $s-size 0;
+  width: 100%;
+}
+
+input {
+  display: block;
+  margin-bottom: $xs-size;
+  width: 100%;
+  
+}
+
+label {
+  display: block;
+  margin-bottom: $xs-size;
+}
+
+table {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+
+  caption {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #6c757d;
+    text-align: center;
+    caption-side: top;
+  }
+
+  th {
+    text-align: center;
+    padding: 2px 5px;
+  }
+
+  td {
+    text-align: center;
+    padding: 2px 5px;
+  }
+}
+
+

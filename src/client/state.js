@@ -1,6 +1,7 @@
 // Learn more about this file at:
 // https://victorzhou.com/blog/build-an-io-game-part-1/#7-client-state
 //import { updateLeaderboard } from './leaderboard';
+import { updateBackground } from './background';
 import { updatePlayerlist } from './playerlist';
 import { updateRollResults, updateServerRollResults } from './roll';
 
@@ -24,11 +25,12 @@ export function processGameUpdate(update) {
   }
   gameUpdates.push(update);
 
+  updateBackground(update.me.bg);
   updatePlayerlist(update.playerlist);
   updateRollResults(update.me.rolls);
   updateServerRollResults(update.rollList);
 
-  //console.log(update);
+  console.log(update);
 
   // Keep only one game update before the current server time
   const base = getBaseUpdate();

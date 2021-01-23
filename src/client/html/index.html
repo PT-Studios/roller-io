@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>An example .io game</title>
+  <title>An .io dice roller built for Troika!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/assets/icon64.png">
   <meta property="description" content="A complete example multiplayer .io web game implemented from scratch. Built with Javascript and Node.js. Open source on Github.">
@@ -11,45 +11,65 @@
 </head>
 <body>
 
-  <div id="game-board" class="hidden">
+    <div id="game-board" class="hidden">
 
-    <button id="button-new-background">New Background</button>
+      
 
-    <div id="dice_fieldgroup">
-      <label for="dice_number">Number of Dice:</label>
-      <input type="number" min="1" step="1" id="dice_number" name="dice_number" value="1"><br>
-
-      <label for="dice_mod">Modifier:</label>
-      <input type="number" min="0" step="1" id="dice_mod" name="dice_mod" value="0"><br>
-
-      <button id="button-roll">Roll</button>
-    </div>
-    
-    <div id="rolling-mat">
-      <p>Your Last Roll:</p>
-      <div id="roll-results">0</div>
-      <p>Server Rolls:</p>
-
-      <div id="server-results">
-        <table>
-          <tbody id="serverrolls">
-            <tr>
-              <th>Roll</th><th>Result</th><th>Time</th><th>Player</th>
-            </tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td></tr>
-          </tbody>
-        </table>
+      <div id="background_group">
+        <h1 class="title">Roller.io</h1>
+        <div id="background_display">
+          <h2 id="background_name"></h2>
+          <p id="background_source"></p>
+          <p id="background_text"></p>
+          <p class="list_header">Items:<br />
+            <ul id="background_possessions"></ul>
+          </p>
+          <p class="list_header">Skills:<br />
+            <ul id="background_skills"></ul>
+          </p>
+        </div>
+        <button id="button-random-background">Random Background</button>
+        <button id="button-choose-background">Choose Background</button>
       </div>
-    </div>
+
+      
+      <div id="rolling-mat">
+        <div id="dice_fieldgroup">
+          <label for="dice_number">Number of Dice:</label>
+          <input type="number" min="1" max="6" step="1" id="dice_number" name="dice_number" value="1">
     
-  </div>
+          <label for="dice_mod">Modifier:</label>
+          <input type="number" min="0" step="1" id="dice_mod" name="dice_mod" value="0">
+    
+          <button id="button-roll">Roll</button>
+        </div>
+
+        <p style="text-align: center;">Your Last Roll:</p>
+        <div id="roll-results">0</div>
+  
+        <div id="server-results">
+          <table>
+            <caption>Roll History</caption>
+            <tbody id="serverrolls">
+              <tr>
+                <th>Roll</th><th>Result</th><th>Player</th>
+              </tr>
+              <tr><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td></tr>
+              <tr><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+
+  
 
   <div id="play-menu" class="hidden">
-    <h1>Simple Dice Roller io</h1>
+    <h1 class="title">Roller.io</h1>
     <p>
       Join the game with friends.
       <br />
@@ -60,7 +80,7 @@
       <!-- <br /> -->
       Created by <a href="http://introvertedape.com">Introverted Ape</a>.
       <br />
-      Forked from <a href="https://victorzhou.com">Victor Zhou's</a> IO game project on <a href="https://github.com/vzhou842/example-.io-game" target="_blank">Github</a>.
+      Forked from <a href="https://victorzhou.com">Victor Zhou's</a> project on <a href="https://github.com/vzhou842/example-.io-game" target="_blank">Github</a>.
     </p>
     <hr />
     <input type="text" id="username-input" placeholder="Username" />
@@ -69,14 +89,16 @@
 
   <div id="playerlist" class="hidden">
     <table>
+      <caption>Playerlist</caption>
       <tr>
-        <th>Player</th>
+        <th>Name</th>
+        <th>Background</th>
       </tr>
-      <tr><td></td></tr>
-      <tr><td></td></tr>
-      <tr><td></td></tr>
-      <tr><td></td></tr>
-      <tr><td></td></tr>
+      <tr><td></td><td></td></tr>
+      <tr><td></td><td></td></tr>
+      <tr><td></td><td></td></tr>
+      <tr><td></td><td></td></tr>
+      <tr><td></td><td></td></tr>
     </table>
   </div>
 
